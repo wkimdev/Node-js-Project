@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+    body
+        h1 
+          a(href='/topic') Server Side JavaScript
+        ul
+            - var count = 0;
+                each topic in topics
+                    if count < 15
+                        li
+                            a(href='/topic/'+topic.id)= topic.test1  
+                        - count++;
+        article
+
+            form(action='/topic/add' method='post')
+                p
+                    input(type='text' name='test1' placeholder='title_test1')
+                p
+                    textarea(name='test2' placeholder='description_test2')
+                p
+                    input(type='text' name='test3' placeholder='test3')
+
+                    form(action='/topic/add/uploadfile' method='post')
+                        p
+                            input(type='file' name='fileupload')
+                p
+                    input(type='submit')
